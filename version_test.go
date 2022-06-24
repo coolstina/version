@@ -8,17 +8,17 @@ import (
 	"github.com/stretchr/testify/suite"
 )
 
-func TestMilletSuite(t *testing.T) {
-	suite.Run(t, &MilletSuite{})
+func TestVersionSuite(t *testing.T) {
+	suite.Run(t, &VersionSuite{})
 }
 
-type MilletSuite struct {
+type VersionSuite struct {
 	suite.Suite
-	millet *Millet
+	millet *Version
 }
 
-func (suite *MilletSuite) BeforeTest(suiteName, testName string) {
-	suite.millet = &Millet{
+func (suite *VersionSuite) BeforeTest(suiteName, testName string) {
+	suite.millet = &Version{
 		AppName:    "millet",
 		Version:    "v1.2.3-beta",
 		GoVersion:  "go1.18.3",
@@ -30,7 +30,7 @@ func (suite *MilletSuite) BeforeTest(suiteName, testName string) {
 	}
 }
 
-func (suite *MilletSuite) Test_RawString() {
+func (suite *VersionSuite) Test_RawString() {
 	expected := `    AppName: millet
     Version: v1.2.3-beta
   GoVersion: go1.18.3
@@ -45,7 +45,7 @@ func (suite *MilletSuite) Test_RawString() {
 	fmt.Println(actual)
 }
 
-func (suite *MilletSuite) Test_JSONString() {
+func (suite *VersionSuite) Test_JSONString() {
 	expected := `{
   "AppName": "millet",
   "Version": "v1.2.3-beta",

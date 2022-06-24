@@ -7,8 +7,8 @@ import (
 	formatalign "github.com/coolstina/format-align"
 )
 
-// Millet builder information structure.
-type Millet struct {
+// Version builder information structure.
+type Version struct {
 	AppName    string
 	Version    string
 	GoVersion  string
@@ -19,12 +19,12 @@ type Millet struct {
 	BuildTime  string
 }
 
-func (millet *Millet) JSONString() string {
+func (millet *Version) JSONString() string {
 	data, _ := json.MarshalIndent(&millet, "", "  ")
 	return string(data)
 }
 
-func (millet *Millet) RawString() string {
+func (millet *Version) RawString() string {
 	var buffer bytes.Buffer
 	var format = formatalign.NewFormatAlign(
 		formatalign.WithAlignment(formatalign.AlignmentOfRight),
